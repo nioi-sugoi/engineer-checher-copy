@@ -13,4 +13,7 @@ https://engineer-checker.com/
 これでもう未経験エンジニアは騙されません。
 
 # 使用画面と機能紹介
-![Uploading スクリーンショット 2020-10-29 18.16.08.png…]()
+<img width="1437" alt="スクリーンショット 2020-10-29 18 16 08" src="https://user-images.githubusercontent.com/64736212/97548821-f8277100-1a12-11eb-8f8b-fac47a16065c.png">
+<img width="1436" alt="スクリーンショット 2020-10-29 18 16 24" src="https://user-images.githubusercontent.com/64736212/97548829-fa89cb00-1a12-11eb-863e-93b4c7cea223.png">
+<img width="1438" alt="スクリーンショット 2020-10-29 18 16 55" src="https://user-images.githubusercontent.com/64736212/97548835-fbbaf800-1a12-11eb-9941-dcf54f16c0c4.png">
+
