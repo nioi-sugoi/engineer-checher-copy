@@ -26,3 +26,10 @@ https://engineer-checker.com/
 | 「どんな属性を持ったエンジニアなのか」を診断。「つよつよエンジニア」や「筋肉エンジニア」など、診断結果は50種類以上。 | 好まれるべきでは無い「インフルエンサー的なツイート」を一覧で確認できる。 |
 
 <br>
+
+## 使用技術
+  - Ruby 2.6.4
+  - Rails 5.2.4.3
+  - Twitter API
+  - Amazon Comprehend
+  - Amazon Rekognition
