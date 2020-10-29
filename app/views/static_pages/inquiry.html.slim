@@ -1,0 +1,15 @@
+- set_meta_tags title: 'お問い合わせ先'
+.container-fluid
+  #help-container.container-result
+    = link_to image_tag('inquiry.png'), inquiry_path, id:'inquiry-title'
+    #main-text
+      | 「エンジニアチェッカー」をご利用いただきありがとうございます。
+      br
+      | 不具合やレイアウト崩れ、その他ご意見・ご要望・お問い合わせなどは下記TwitterアカウントのDMまで送っていただけると大変助かります。
+    .id-wrapper
+      = link_to '【@shigoto_yamero】', 'https://twitter.com/shigoto_yamero', id:'inquiry-id'
+  .button-container
+    .button-wrapper
+      = link_to root_path, class:"button button-top button-lg" do
+        i.fas.fa-home
+        | &nbsp;トップへ 

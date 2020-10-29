@@ -1,0 +1,29 @@
+- set_meta_tags title: '診断結果'
+.container-fluid
+  a#name
+    = @user.name.truncate(13)
+    | さんの診断結果
+  .container-result
+    = render 'shared/result/main_result', result: @result
+    .button-container
+      .button-wrapper
+        / インフルツイートが0件なら画面遷移しない
+        - if session[:fucking_tweets].empty?
+          = button_tag type:"button", class:"button button-influencer button-sm", onclick:"alert('インフルツイートは0件です');" do
+            i.fas.fa-exclamation-triangle
+            | &nbsp;インフルツイート一覧&nbsp;&nbsp; 
+        - else
+          = link_to influ_tweets_analyses_other_path, class:"button button-influencer button-sm" do
+            i.fas.fa-exclamation-triangle
+            | &nbsp;インフルツイート一覧&nbsp;&nbsp; 
+  #ads-wrapper
+    = link_to image_tag('RUNTEQ2.png'), 'https://runteq.jp/r/raPEAmWJ', id:'ads'
+  .button-container
+    .button-wrapper
+      = link_to root_path, class:"button button-top button-lg" do
+        i.fas.fa-home
+        | &nbsp;トップへ 
+      = link_to @share_tweet, class:"button button-tw button-lg", target: "_blank_", rel: "nofollow"
+        i.fab.fa-twitter.fa-fw
+        | &nbsp;ツイート
+

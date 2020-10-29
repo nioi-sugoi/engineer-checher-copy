@@ -1,0 +1,39 @@
+- set_meta_tags title: 'インフルツイート一覧'
+.container-fluid
+  a#name
+    = @name.truncate(14)
+    | さんの
+    br
+    | インフルツイート一覧
+  .button-container
+    .button-wrapper#button-wrapper-influ
+      = link_to root_path, class:"button button-top button-lg" do
+        i.fas.fa-home
+        | &nbsp;トップへ 
+      = link_to analyses_myself_path, data: { disable_with: '<i class="fas fa-spinner fa-spin"></i> 診断に戻る' }, class:"button button-again button-lg" do
+        i.fas.fa-undo-alt.fa-fw
+        | &nbsp;診断に戻る
+      
+  .container-tweets
+    .main-tweets
+      script type="text/javascript" src="https://platform.twitter.com/widgets.js"
+      - @tweets.each do |tweet|
+        div id="js-embedded-tweet-#{tweet[:tweet].to_s}"
+          blockquote class="twitter-tweet" data-theme="white" id="tweet-#{tweet[:tweet]}"
+            a href="https://twitter.com/#{@screen_name}/status/#{tweet[:tweet]}"
+          = render 'shared/influ/comment', tweet:tweet
+          .delete-button-wrapper
+            = link_to tweet_path(tweet[:tweet]), class:"button button-delete button-sm", method: :delete, remote: true, data: { confirm: '削除してよろしいですか？' } do
+              i.far.fa-trash-alt
+              | &nbsp;&nbsp;ツイートを削除
+        div id="js-flash-message-#{tweet[:tweet].to_s}" class='flash-message-delete'
+          | ツイートを削除しました
+      = paginate @tweets
+  .button-container
+    .button-wrapper
+      = link_to root_path, class:"button button-top button-lg" do
+        i.fas.fa-home
+        | &nbsp;トップへ 
+      = link_to analyses_myself_path, data: { disable_with: '<i class="fas fa-spinner fa-spin"></i> 診断に戻る' }, class:"button button-again button-lg" do
+        i.fas.fa-undo-alt.fa-fw
+        | &nbsp;診断に戻る 

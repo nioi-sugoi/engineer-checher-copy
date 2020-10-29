@@ -1,0 +1,51 @@
+- set_meta_tags title: '診断結果'
+.container-fluid
+  p#name
+    = @user.name.truncate(14)
+    | さん
+    br
+    | （ 
+    = link_to "@#{@screen_name}", @user.url.to_s, target: :_blank
+    |  ） の診断結果
+  .container-result
+    = render 'shared/result/main_result', result: @result
+    #js-flash-message
+      | @#{@screen_name} さんの
+      br.br-sp
+      | フォローを解除しました
+    .button-container
+      .button-wrapper
+        / インフルツイートが0件なら画面遷移しない
+        - if session[:protected?]
+          = button_tag type:"button", class:"button button-influencer button-sm", onclick:"alert('この機能は非公開アカウントには利用できません');" do
+            i.fas.fa-exclamation-triangle
+            | &nbsp;インフルツイート一覧&nbsp;&nbsp; 
+        - elsif session[:fucking_tweets].empty?
+          = button_tag type:"button", class:"button button-influencer button-sm", onclick:"alert('インフルツイートは0件です');" do
+            i.fas.fa-exclamation-triangle
+            | &nbsp;インフルツイート一覧&nbsp;&nbsp; 
+        - else
+          = link_to influ_tweets_analyses_random_path(@random_id), class:"button button-influencer button-sm" do
+            i.fas.fa-exclamation-triangle
+            | &nbsp;インフルツイート一覧&nbsp;&nbsp; 
+        /リムーブ後にページをリロードした際、再度フォローボタンが表示されないため
+        - if @result[:judgement].include?('インフルエンサー') && session[:follow_ids].include?(@random_id)
+          = link_to follow_path(@random_id), class:"button button-top button-sm", id:"js-button-remove",method: :delete, remote: true,  data: { confirm: "@#{@screen_name}さんをフォロー解除してよろしいですか？" } do
+            i.fas.fa-user-slash
+            | &nbsp;フォロー解除
+
+  #ads-wrapper
+    = link_to image_tag('RUNTEQ2.png'), 'https://runteq.jp/r/raPEAmWJ', id:'ads'
+  .button-container
+    = link_to analyses_random_path(session[:follow_ids].sample), data: { disable_with: '<i class="fas fa-spinner fa-spin"></i> &nbsp;&nbsp;&nbsp;&nbsp;もう一度ランダムに診断&nbsp;&nbsp;&nbsp;&nbsp' }, class:"button button-random button-lg" do
+      i.fas.fa-undo-alt.fa-fw
+      | &nbsp;&nbsp;&nbsp;&nbsp;もう一度ランダムに診断&nbsp;&nbsp;&nbsp;&nbsp; 
+    br
+    .button-wrapper
+      = link_to root_path, class:"button button-top button-lg" do
+        i.fas.fa-home
+        | &nbsp;トップへ 
+      = link_to @share_tweet, class:"button button-tw button-lg", target: "_blank_", rel: "nofollow"
+        i.fab.fa-twitter.fa-fw
+        | &nbsp;ツイート
+

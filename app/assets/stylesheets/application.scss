@@ -1,0 +1,26 @@
+@import "bootstrap";
+@import 'top';
+@import 'result';
+@import 'help';
+@import 'inquiry';
+@import 'privacy';
+@import 'error_500';
+@import 'influ';
+@import url(//use.fontawesome.com/releases/v5.7.2/css/all.css);
+
+body {
+  color: white;
+}
+
+body:before{
+  content:"";
+  display:block;
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:-1;
+  width:100%;
+  height:100vh;
+  background:image-url("programing2.jpg") no-repeat;
+  background-size:cover;
+}

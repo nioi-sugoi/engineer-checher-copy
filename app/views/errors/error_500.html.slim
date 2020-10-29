@@ -1,0 +1,13 @@
+- set_meta_tags title: '500エラー'
+.container-fluid
+  #help-container.container-result
+    #error-title
+      | 500エラー
+    div[style="font-size:3.5vh;"]
+      | 予期せぬエラーが発生しました
+  .button-container
+    .button-wrapper
+      = link_to root_path, class:"button button-top button-lg" do
+        i.fas.fa-home
+        | &nbsp;トップへ 
+      = link_to 'お問い合わせ', inquiry_path, class:"button button-again button-lg"

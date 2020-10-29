@@ -1,0 +1,33 @@
+- set_meta_tags title: 'インフルツイート一覧'
+.container-fluid
+  a#name
+    = @name.truncate(14)
+    | さんの
+    br
+    | インフルツイート一覧
+  .button-container
+    .button-wrapper#button-wrapper-influ
+      = link_to root_path, class:"button button-top button-lg" do
+        i.fas.fa-home
+        | &nbsp;トップへ 
+      = link_to analyses_other_path(params[:id].to_i), data: { disable_with: '<i class="fas fa-spinner fa-spin"></i> &nbsp;診断に戻る' }, class:"button button-random button-lg", id:'index-button-random' do
+        i.fas.fa-undo-alt.fa-fw
+        | &nbsp;診断に戻る
+      
+    .container-tweets
+      script type="text/javascript" src="https://platform.twitter.com/widgets.js"
+      .main-tweets
+        - @tweets.each do |tweet|
+          div id="js-embedded-tweet-#{tweet[:tweet].to_s}"
+            blockquote class="twitter-tweet" data-theme="white" id="tweet-#{tweet[:tweet]}"
+              a href="https://twitter.com/#{@screen_name}/status/#{tweet[:tweet]}"
+            = render 'shared/influ/comment', tweet:tweet
+        = paginate @tweets
+  .button-container
+    .button-wrapper
+      = link_to root_path, class:"button button-top button-lg" do
+        i.fas.fa-home
+        | &nbsp;トップへ 
+      = link_to analyses_other_path(params[:id].to_i), data: { disable_with: '<i class="fas fa-spinner fa-spin"></i> &nbsp;診断に戻る' }, class:"button button-random button-lg", id:'index-button-random' do
+        i.fas.fa-undo-alt.fa-fw
+        | &nbsp;診断に戻る

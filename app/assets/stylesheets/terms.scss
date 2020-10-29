@@ -1,0 +1,51 @@
+@media screen and ( max-width:500px) {
+  .main-privacy{
+  font-size:3.5vw;
+  font-weight: normal;
+  margin-top:1vh;
+  margin-bottom: 2vh;
+}
+.number-privacy{
+  font-size:4.5vw;
+}
+.main-privacy > div{
+  padding-left:3vw;
+}
+.main-privacy > div > div{
+  padding-left:3vw;
+}
+}
+@media screen and (min-width:501px) and ( max-width:1024px) {
+.main-privacy{
+  font-size:3.5vw;
+  font-weight: normal;
+  margin-top:1vh;
+  margin-bottom: 2vh;
+}
+.number-privacy{
+  font-size:4.5vw;
+}
+.main-privacy > div{
+  padding-left:3vw;
+}
+.main-privacy > div > div{
+  padding-left:3vw;
+}
+}
+@media screen and ( min-width:1025px) {
+.main-privacy{
+  font-size:1vw;
+  font-weight: normal;
+  margin-top:1vh;
+  margin-bottom: 2vh;
+}
+.number-privacy{
+  font-size:1.5vw;
+}
+.main-privacy > div{
+  padding-left:3vw;
+}
+.main-privacy > div > div{
+  padding-left:3vw;
+}
+}

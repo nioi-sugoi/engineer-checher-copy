@@ -1,0 +1,29 @@
+- set_meta_tags title:'エンジニアのアカウント診断'
+
+.container-fluid.container-top
+  = image_tag 'logo_tool2.png', id:'catch-phrase'
+  = link_to image_tag('logo_dot.png'), root_path, id:'title-logo'
+  = render 'shared/flash_message'
+  = form_with(url:'/auth/twitter?myself_or_random=myself', local:true) do
+    .top-button-wrapper
+      = button_tag "自分を診断", data: { disable_with: '<i class="fas fa-spinner fa-spin"></i> 分析中...' }, class:"button-black"
+  br
+  #top-another-button-wrapper
+    = button_tag "他人を診断", onclick:"clickBtnOthers()", class:"button-black", id: "another_button"
+  = form_with(url: analyses_others_path, local:true, id: 'another_form') do
+    #another-button-wrapper
+      #button-close onclick="clickBtnOthersHide()"
+        i.fas.fa-angle-down.fa-2x
+      = text_field_tag  :tweet, nil, class:"form-control", id:'form_id', name: "screen_name", placeholder: "IDを入力", value: @screen_name
+      = button_tag "他人を診断", data: { disable_with: '<i class="fas fa-spinner fa-spin"></i> 分析中...' }, class:"button-black"
+  br
+  = form_with(url:'/auth/twitter?myself_or_random=random', local:true) do
+    .top-button-wrapper
+      = button_tag "フォローからランダム診断", data: { disable_with: '<i class="fas fa-spinner fa-spin"></i> 分析中...' }, class:"button-black"
+  = link_to image_tag('logo_help.png'), help_path, id:'help'
+  = link_to image_tag('terms3.png'), terms_path, id:'terms'
+  = link_to image_tag('privacy2.png'), privacy_path, id:'privacy'
+  = link_to image_tag('inquiry.png'), inquiry_path, id:'inquiry'
+  .copyright
+    | ©︎2020 エンジニアチェッカー
+

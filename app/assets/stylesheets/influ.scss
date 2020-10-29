@@ -1,0 +1,199 @@
+.container-tweets{
+  margin:0 auto;
+  background-color:rgba(0,0,0,0.5);
+}
+
+.main-tweets {
+  text-align:center;
+}
+
+.twitter-tweet {
+  margin:0 auto;
+}
+
+.comment {
+  font-weight: bold;
+}
+
+.comment > p > span {
+  color:red;
+}
+
+.button-delete {
+  color: white;
+  background: #EE0000;
+  border-color:#CC0000;
+ }
+
+.pagination {
+  justify-content: center;
+}
+
+.button-again {
+  color: white;
+  background: #110000;
+  border-color: black;
+  background-image: -webkit-linear-gradient(rgba(255,255,255,.3) 0%,transparent 50%,transparent 50%,rgba(0,0,0,.1) 100%);
+  background-image:         linear-gradient(rgba(255,255,255,.3) 0%,transparent 50%,transparent 50%,rgba(0,0,0,.1) 100%);
+}
+
+.flash-message-delete {
+  width:85%;
+  display:block;
+  text-align:center;
+  margin:0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 5px;
+  color:white;
+  background:#00AA00;
+  display:none;
+}
+
+@media screen and ( max-width:500px) { 
+  #button-wrapper-influ{
+    margin-top:10px;
+    margin-bottom:5px;
+  }
+
+  .container-tweets{
+    width: 95%;
+    border:6px double white;
+    margin-top:2.3vh;
+  }
+
+  .main-tweets {
+    margin: 10px;
+  }
+
+  .comment {
+    font-size: 19px;
+    margin: 10px 0;
+  }
+
+  .br-sp {
+    display:block;
+  }
+
+  .delete-button-wrapper {
+   margin-top: 10px;
+   margin-bottom: 20px;
+  }
+
+  .button-delete {
+    font-size: 4vw;
+  }
+
+  .button-again {
+    margin-left: 15px;
+  }
+  #index-button-random {
+    margin-left: 20px;
+  }
+  .flash-message-delete {
+    font-size:20px;
+  }
+
+  @media screen and ( max-width:330px) { 
+    .container-tweets{
+      width: 100%;
+    }
+    .main-tweets {
+      margin: 5px;
+    }
+    .comment {
+      font-size: 18px;
+    }
+  }
+}
+
+
+@media screen and (min-width:501px) and ( max-width:1024px) {
+  #button-wrapper-influ{
+    margin-top:10px;
+    margin-bottom: 0;
+  }
+  .container-tweets{
+    width: 75%;
+    border:6px double white;
+    margin-top:2.3vh;
+  }
+
+  .main-tweets {
+    margin: 10px;
+  }
+
+  .comment {
+    font-size: 23px;
+    margin: 10px 0;
+  }
+
+  .br-sp {
+    display: block;
+  }
+
+  .delete-button-wrapper {
+   margin-top: 10px;
+   margin-bottom: 20px;
+  }
+
+  .button-delete {
+    font-size: 2.5vw;
+   }
+
+  .button-again {
+    margin-left: 30px;
+  }
+  #index-button-random {
+    margin-left: 30px;
+  }
+  .flash-message-delete {
+    font-size:27px;
+  }
+}
+
+
+@media screen and (min-width:1025px) {
+  #button-wrapper-influ{
+    margin-top:0;
+    margin-bottom: 0;
+  }
+  .container-tweets{
+    width: 45%;
+    border:6px double white;
+  }
+
+  .main-tweets {
+    margin: 10px;
+  }
+
+  .comment {
+    font-size: 20px;
+    margin: 20px 0;
+  }
+
+  .br-sp {
+    display: none;
+  }
+
+  .delete-button-wrapper {
+   margin-top: 10px;
+   margin-bottom: 20px;
+  }
+
+  .button-delete {
+    font-size: 1.4vw;
+   }
+
+  .button-again {
+    margin-left: 30px;
+  }
+
+  #index-button-random {
+    margin-left: 30px;
+  }
+
+  .flash-message-delete {
+    font-size:27px;
+  }
+}

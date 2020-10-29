@@ -1,0 +1,72 @@
+.comment
+  - case tweet[:status]
+  - when 'influ_name'
+    p
+      | インフルエンサーに関して肯定的な
+      br.br-sp
+      - if tweet[:retweet?]
+        | リツイートです
+      - else
+        | ツイートです
+      br
+      | 対象ワード
+      span
+        |「#{tweet[:word]}」
+  - when 'influ_reply'
+    p
+      - if tweet[:retweet?]
+        | インフルエンサーに関して肯定的な
+        br.br-sp
+        | リツイートです
+      - else
+        | インフルエンサーに対する肯定的な
+        br.br-sp
+        | リプライです
+      br
+      | 対象アカウント
+      span
+        |「#{tweet[:word]}」
+  - when 'influ_salon'
+    p 
+      | オンラインサロンに関して肯定的な
+      br.br-sp
+      - if tweet[:retweet?]
+        | リツイートです
+      - else
+        | ツイートです
+      br
+      | 対象ワード
+      span
+        | 「#{tweet[:word]}」
+  - when 'influ_poison'
+    p 
+      | インフルエンサー的な思想の
+      br.br-sp
+      - if tweet[:retweet?]
+        | リツイートです
+      - else
+        | ツイートです
+  - when 'influ_freelance'
+    p 
+      | フリーランスを過剰に賛美する
+      br.br-sp
+      - if tweet[:retweet?]
+        | リツイートです
+      - else
+        | ツイートです
+  - when 'influ_related'
+    p 
+      | インフルエンサーに関連する
+      br.br-sp
+      - if tweet[:retweet?]
+        | リツイートです
+      - else
+        | ツイートです
+  - when 'virtual_product'
+    p 
+      | 情報商材の販売を示唆する
+      br.br-sp
+      - if tweet[:retweet?]
+        | リツイートです
+      - else
+        | ツイートです

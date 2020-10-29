@@ -1,0 +1,91 @@
+#main-result.text-center
+  - if result[:judgement].include?('闇堕ち')
+    a#dark-side
+      = simple_format(result[:judgement])
+  - elsif result[:judgement].include?('おじさん')
+    a#ojisan
+      = simple_format(result[:judgement])
+  - elsif result[:judgement].include?('つよつよ')
+    a#strong-engineer
+      = simple_format(result[:judgement])
+  - elsif result[:judgement].include?('インフルエンサー')
+    a#influencer
+      = simple_format(result[:judgement])
+  - elsif result[:judgement].include?('筋肉')
+    a#muscle
+      = simple_format(result[:judgement])
+  - elsif result[:judgement].include?('駆け出し')
+    a#beginner
+      = simple_format(result[:judgement])
+  - else
+    a#normal
+      = simple_format(result[:judgement])
+canvas#myChart
+#comment-card
+  - if  result[:judgement].include?('闇堕ち')
+    ul.text-left[style="color: rgb(206,0,251);"]
+      li
+        = result[:comments][0]
+      li
+        = result[:comments][1]
+      li
+        = result[:comments][2]
+  - else
+    ul.text-left
+      li
+        = result[:comments][0]
+      li
+        = result[:comments][1]
+      li
+        = result[:comments][2]
+
+javascript:
+  var ctx = document.getElementById("myChart");
+  var myChart = new Chart(ctx, {
+    type: 'radar',
+    data: {
+      labels: ["#{result[:label][:follower]} #{result[:points][:follower]}", "#{result[:label][:beginner]} #{result[:points][:beginner]}", "#{result[:label][:design]} #{result[:points][:design]}", "#{result[:label][:development]} #{result[:points][:development]}", "#{result[:label][:strong]} #{result[:points][:strong]}", "#{result[:label][:influencer]} #{result[:points][:influencer]}"],
+      datasets: [{
+        backgroundColor: "rgba(236, 23, 183,0.65)",
+        borderColor: "rgba(255, 20, 120,1)",
+        borderWidth: 2,
+        pointRadius: 1.5,
+        data: [
+          #{result[:points][:follower] + 2},
+          #{result[:points][:beginner] + 2},
+          #{result[:points][:design] + 2},
+          #{result[:points][:development] +2},
+          #{result[:points][:strong] + 2},
+          #{result[:points][:influencer] + 2}
+          ]
+      }]
+    },
+    options: {
+      legend: {
+        display: false
+      },
+      scale: {
+        gridLines: {
+          color: "rgba(255,255,255,1)",
+          lineWidth: 2.5
+      },
+        pointLabels: {
+          fontSize: 15,
+          fontColor: 'white',
+          fontStyle: 'bold'
+      },
+        ticks: {
+          display: false,
+          max: 12,
+          min: 0,
+          stepSize: 12,
+          fontColor: 'white'
+      },
+        angleLines: {
+          display: true,
+          color: "rgba(255, 255, 255,0.5)",
+          lineWidth: 1.5
+        }
+      }
+    }
+  });
